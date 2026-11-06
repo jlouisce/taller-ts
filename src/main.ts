@@ -68,3 +68,33 @@ let usuario: Usuario = { id: 10, nombre: "Luis" };
 // usuario.id = 11; // ❌ Error, es de solo lectura
 usuario.email = "luis@correo.com";
 console.log("Interfaz:", usuario);
+
+// ---- Clases y modificadores de acceso ----
+class Vehiculo {
+  protected ruedas: number;
+  constructor(ruedas: number) {
+    this.ruedas = ruedas;
+  }
+  public arrancar(): void {
+    console.log("El vehículo está arrancando.");
+  }
+}
+class Coche extends Vehiculo {
+  public marca: string;
+  private _velocidad: number = 0;
+  constructor(ruedas: number, marca: string) {
+    super(ruedas);
+    this.marca = marca;
+  }
+  public getInfo(): void {
+    console.log(`Este coche tiene ${this.ruedas} ruedas.`);
+  }
+  public acelerar(cantidad: number): void {
+    this._velocidad += cantidad;
+  }
+}
+const miCoche = new Coche(4, "Toyota");
+miCoche.arrancar();
+miCoche.acelerar(50);
+miCoche.getInfo();
+// miCoche._velocidad = 100; // ❌ Error, es privado
