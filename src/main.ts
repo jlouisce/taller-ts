@@ -23,3 +23,10 @@ function detenerProceso(razon: string): never {
 }
 registrarMensaje("probando void");
 try { detenerProceso("prueba de never"); } catch (e) { console.log((e as Error).message); }
+
+// ---- Arrays, Tuplas y Enums ----
+let usuariosIDs: number[] = [101, 102, 103];
+let gpsCoordenadas: [number, number] = [40.7128, -74.0060];
+enum EstadoOrden { Pendiente, Enviada, Entregada, Cancelada }
+let miOrdenEstado: EstadoOrden = EstadoOrden.Enviada;
+console.log("Arrays/Tuplas/Enum:", usuariosIDs, gpsCoordenadas, miOrdenEstado, EstadoOrden[miOrdenEstado]);
