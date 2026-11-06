@@ -30,3 +30,16 @@ let gpsCoordenadas: [number, number] = [40.7128, -74.0060];
 enum EstadoOrden { Pendiente, Enviada, Entregada, Cancelada }
 let miOrdenEstado: EstadoOrden = EstadoOrden.Enviada;
 console.log("Arrays/Tuplas/Enum:", usuariosIDs, gpsCoordenadas, miOrdenEstado, EstadoOrden[miOrdenEstado]);
+
+// ---- Union, Alias e Intersection ----
+type ID = string | number;
+let miId: ID = "a-123";
+type Empleado = { nombre: string, email: string };
+type Desarrollador = Empleado & { lenguaje: string, senioridad: "junior" | "senior" };
+let nuevoDev: Desarrollador = {
+  nombre: "Carlos",
+  email: "carlos@empresa.com",
+  lenguaje: "TypeScript",
+  senioridad: "junior"
+};
+console.log("Union/Intersection:", miId, nuevoDev);
