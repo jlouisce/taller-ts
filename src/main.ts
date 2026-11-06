@@ -43,3 +43,17 @@ let nuevoDev: Desarrollador = {
   senioridad: "junior"
 };
 console.log("Union/Intersection:", miId, nuevoDev);
+
+// ---- Parámetros de funciones ----
+function saludar(nombre: string = 'Desconocido', titulo?: string, ...amigos: string[]): string {
+  let saludo = titulo ? `${titulo} ${nombre}` : nombre;
+  if (amigos.length > 0) {
+    saludo += `, y tus amigos ${amigos.join(', ')}`;
+  }
+  return `Hola, ${saludo}.`;
+}
+console.log(saludar());
+console.log(saludar("Ana"));
+console.log(saludar("Pedro", "Sr."));
+console.log(saludar("Maria", undefined, "Juan", "Pedro"));
+console.log(saludar(undefined, undefined, "Juan", "Pedro"));
