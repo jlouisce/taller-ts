@@ -126,3 +126,8 @@ colaCadenas.agregar('Pepe');
 colaCadenas.agregar('Maria');
 const primerNombre = colaCadenas.obtenerPrimerElemento();
 console.log(primerNombre);
+
+// ---- Módulos ----
+import { sumar } from './utils.js';
+const resultado = sumar(5, 10);
+console.log(`El resultado de la suma es: ${resultado}`);
