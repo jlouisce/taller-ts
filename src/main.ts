@@ -57,3 +57,14 @@ console.log(saludar("Ana"));
 console.log(saludar("Pedro", "Sr."));
 console.log(saludar("Maria", undefined, "Juan", "Pedro"));
 console.log(saludar(undefined, undefined, "Juan", "Pedro"));
+
+// ---- Interfaces ----
+interface Usuario {
+  readonly id: number;
+  nombre: string;
+  email?: string;
+}
+let usuario: Usuario = { id: 10, nombre: "Luis" };
+// usuario.id = 11; // ❌ Error, es de solo lectura
+usuario.email = "luis@correo.com";
+console.log("Interfaz:", usuario);
