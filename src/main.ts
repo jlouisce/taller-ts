@@ -98,3 +98,31 @@ miCoche.arrancar();
 miCoche.acelerar(50);
 miCoche.getInfo();
 // miCoche._velocidad = 100; // ❌ Error, es privado
+
+// ---- Genéricos ----
+class ColaString {
+  private items: string[] = [];
+  agregar(item: string): void { this.items.push(item); }
+  obtenerPrimerElemento(): string | undefined { return this.items.shift(); }
+}
+class ColaNumber {
+  private items: number[] = [];
+  agregar(item: number): void { this.items.push(item); }
+  obtenerPrimerElemento(): number | undefined { return this.items.shift(); }
+}
+class Cola<T> {
+  private items: T[] = [];
+  agregar(item: T): void { this.items.push(item); }
+  obtenerPrimerElemento(): T | undefined { return this.items.shift(); }
+}
+const colaNumeros = new Cola<number>();
+colaNumeros.agregar(10);
+colaNumeros.agregar(20);
+const primerNumero = colaNumeros.obtenerPrimerElemento();
+console.log(primerNumero);
+
+const colaCadenas = new Cola<string>();
+colaCadenas.agregar('Pepe');
+colaCadenas.agregar('Maria');
+const primerNombre = colaCadenas.obtenerPrimerElemento();
+console.log(primerNombre);
