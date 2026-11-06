@@ -13,3 +13,13 @@ if (typeof datosAPI === 'object' && datosAPI !== null) {
   let producto = datosAPI as { nombre: string, precio: number };
   console.log("unknown:", producto.nombre);
 }
+
+// ---- void y never ----
+function registrarMensaje(mensaje: string): void {
+  console.log("LOG:", mensaje);
+}
+function detenerProceso(razon: string): never {
+  throw new Error(`Proceso detenido: ${razon}`);
+}
+registrarMensaje("probando void");
+try { detenerProceso("prueba de never"); } catch (e) { console.log((e as Error).message); }
